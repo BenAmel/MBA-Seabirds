@@ -9,7 +9,7 @@
 // declare the rotary control object. Arguments are as follows
 
 //    rotaryControl( pin number for input ,
-//                   number of counts before triggering (default is 12),
+//                   number of counts before triggering (default is 12 (2 cranks of wheel)),
 //                   timeout before resetting counts (default is 500 ms)
 
 rotaryControl crank(14,12,500);
@@ -28,13 +28,13 @@ dcMotor egg(5,3,17,16);
 //              Configurable options             //
 ///////////////////////////////////////////////////
 
+// This is the time that the egg pauses when rolled 
+// out from beneath the parent
 int eggOutTime = 2000; //in milliseconds
 
-// Time that the visitor has to crank before triggering.
+// Time that the visitor has to crank before triggering in milliseconds.
 // If set to any number besides zero, visitor still has to crank
-// a minimum of the counts specified above, but they also
-// have to be cranking for a minimum of minTriggerTime milliseconds.
-
+// a minimum of the counts specified above.
 int minTriggerTime = 2000;
 
 // Maximum time that the DC motor can run before we assume it's broken

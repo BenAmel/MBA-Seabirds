@@ -14,7 +14,7 @@ actuator chick(3,5,6,16,15);
 // declare the rotary control object. Arguments are as follows
 
 //    rotaryControl( pin number for input ,
-//                   number of counts before triggering (default is 30),
+//                   number of counts before triggering (default is 10 (5 rotations)),
 //                   timeout before resetting counts (default is 1000 ms)){
 
 rotaryControl crank(14,10,1000);
@@ -23,20 +23,19 @@ rotaryControl crank(14,10,1000);
 //              Configurable options             //
 ///////////////////////////////////////////////////
 
-// Set the delay times at the end of the jump, specified in milliseconds
+// Set the delay time at the end of the jump, specified in milliseconds
 int endDelay = 3000;
 
-// Set the delay times at the end of the jump, specified in milliseconds
+// Set the delay time at the end of the cycle before reset, specified in milliseconds
 int homeDelay = 2000;
 
-// Time that the visitor has to crank before triggering.
+// Time that the visitor has to crank before triggering in milliseconds
 // If set to any number besides zero, visitor still has to crank
-// a minimum of the counts specified above, but they also
-// have to be cranking for a minimum of minTriggerTime milliseconds.
+// a minimum of the counts specified above
 
 int minTriggerTime = 3000;
 
-// Movement profile for the chick.
+// Movement profile for the chick's hop.
 // Default produces a forward motion with 
 // slight periodic acceleration and deceleration.
 //
@@ -44,11 +43,11 @@ int minTriggerTime = 3000;
 // with the 8 multiplier in the operand of the
 // cosine, it has a period of .157 seconds. 
 //
-//To slow or speed the
-// oscillation, simply add a multiplier to the operand of the 
-//trig functions. Multiply by >1 to increase the speed, <1 to decrease.
+//To slow or speed the oscillation, simply add a multiplier 
+// to the operand of the trig functions.
+// Multiply by >1 to increase the speed, <1 to decrease.
 //
-//Units are inches per second.
+// Units are inches per second.
 
 float hopProfile (float osc){
   return sin(osc*5)*3;
